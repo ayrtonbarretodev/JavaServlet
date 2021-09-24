@@ -33,6 +33,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		
 		//chamar o JSP para mostrar os dados no navegador
 		RequestDispatcher rd = req.getRequestDispatcher("/novaEmpresaCriada.jsp");
+		req.setAttribute("empresa",empresa.getNome());
 		rd.forward(req, resp);
 	}
 
