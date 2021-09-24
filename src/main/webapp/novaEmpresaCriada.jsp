@@ -12,6 +12,6 @@ System.out.println(nomeEmpresa);
 <title>Nova Empresa</title>
 </head>
 <body>
-	Empresa <% out.println(nomeEmpresa); %> cadastrada com sucesso!
+	Empresa <%=nomeEmpresa %> cadastrada com sucesso!
 </body>
 </html>
