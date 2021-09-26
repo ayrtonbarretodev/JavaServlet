@@ -19,7 +19,6 @@ public class ListaEmpresasServlet extends HttpServlet {
     
     public ListaEmpresasServlet() {
         super();
-    
     }
 
 	
