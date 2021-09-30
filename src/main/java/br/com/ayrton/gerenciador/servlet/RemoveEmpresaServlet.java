@@ -24,6 +24,4 @@ public class RemoveEmpresaServlet extends HttpServlet {
 		resp.sendRedirect("listaEmpresas");
 	}
 	
-	
-	
 }
