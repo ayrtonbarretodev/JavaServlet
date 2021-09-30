@@ -30,20 +30,25 @@ public class Banco {
 		return listaEmpresas;
 	}
 	
-	public void update(Empresa empresa) {
-		
+	public 	Empresa buscarEmpresaPeloId(Integer id) {
+		for (Empresa empresa : listaEmpresas) {
+			if (empresa.getId() == id) {
+				return empresa;
+			}
+		}
+		return null;
 	}
 	
 	
 	public void delete(Integer id) {
 		
-		Iterator<Empresa> it = listaEmpresas.iterator();
+		Iterator<Empresa> it = listaEmpresas.iterator(); //funciona parecido com um for
 		
-		while(it.hasNext()) {
-			Empresa emp = it.next();
+		while(it.hasNext()) { //enquanto tiver um próximo
+			Empresa emp = it.next(); //vá avançando
 			
-			if(emp.getId() == id) {
-				it.remove();
+			if(emp.getId() == id) { // e se o id da empresa for igual ao id recebido, a empresa é removida
+				it.remove(); //remove a empresa
 			}
 		}
 	}
