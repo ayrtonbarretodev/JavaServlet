@@ -12,8 +12,8 @@
 	<form action="${linkServletAlteraEmpresa}" method="post"> <!-- O action está "chamando" o servlet NovaEmpresaServlet -->
 		Nome: <input type="text" name="nome" value="${buscaEmpresa.nome}">
 		Data de Abertura: <input type="text" name="data" value="<fmt:formatDate value="${buscaEmpresa.dataAbertura}" pattern="dd/MM/yyyy"/>" />
+		<input type="hidden" name="id" value="${buscaEmpresa.id }">
 		<input type="submit" />
-		
 	</form>
 </body>
 </html>
