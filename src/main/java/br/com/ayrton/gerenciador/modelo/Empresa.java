@@ -1,4 +1,4 @@
-package br.com.ayrton.gerenciador.servlet;
+package br.com.ayrton.gerenciador.modelo;
 
 import java.util.Date;
 
