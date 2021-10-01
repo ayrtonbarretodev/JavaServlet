@@ -1,4 +1,4 @@
-<%@page import="br.com.ayrton.gerenciador.servlet.modelo.Empresa"%>
+<%@page import="br.com.ayrton.gerenciador.modelo.Empresa"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
