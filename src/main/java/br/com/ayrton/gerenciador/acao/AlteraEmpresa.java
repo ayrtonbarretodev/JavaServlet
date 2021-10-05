@@ -14,7 +14,7 @@ import br.com.ayrton.gerenciador.modelo.Empresa;
 
 public class AlteraEmpresa {
 	
-	public void alteraEmpresa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public String alteraEmpresa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
 		
 		String nomeDaEmpresa = request.getParameter("nome");
@@ -37,6 +37,6 @@ public class AlteraEmpresa {
 		empresa.setNome(nomeDaEmpresa);
 		empresa.setDataAbertura(dataAbertura);
 		
-		response.sendRedirect("entrada?acao=ListaEmpresas");
+		return "redirect:entrada?acao=ListaEmpresas";
 	}
 }

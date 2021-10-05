@@ -9,7 +9,7 @@ import br.com.ayrton.gerenciador.modelo.Banco;
 
 public class RemoveEmpresa {
 	
-	public void remove(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	public String remove(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
 		System.out.println("removendo empresa");
 		
@@ -19,6 +19,6 @@ public class RemoveEmpresa {
 		Banco banco = new Banco();
 		banco.delete(id);
 		
-		resp.sendRedirect("entrada?acao=ListaEmpresas");
+		return "redirect:entrada?acao=ListaEmpresas";
 	}
 }

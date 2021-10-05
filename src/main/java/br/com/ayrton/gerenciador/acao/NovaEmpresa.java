@@ -14,7 +14,7 @@ import br.com.ayrton.gerenciador.modelo.Empresa;
 
 public class NovaEmpresa {
 
-	public void novaEmpresa(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+	public String novaEmpresa(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		
 		System.out.println("Cadastrando nova empresa");
 		
@@ -40,6 +40,6 @@ public class NovaEmpresa {
 		banco.adiciona(empresa);
 		
 		req.setAttribute("empresa",empresa.getNome());
-		resp.sendRedirect("entrada?acao=ListaEmpresas");
+		return "redirect:entrada?acao=ListaEmpresas";
 	}
 }
