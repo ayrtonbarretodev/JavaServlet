@@ -6,9 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class NovoFormularioEmpresa {
+public class NovoFormularioEmpresa implements Acao{
 
-	public String formNovaEmpresa(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+	public String executa(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		
 		System.out.println("Formulário para cadastrar empresa");
 		

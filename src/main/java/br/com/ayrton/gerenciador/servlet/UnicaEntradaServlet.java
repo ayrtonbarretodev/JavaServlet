@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.ayrton.gerenciador.acao.Acao;
 import br.com.ayrton.gerenciador.acao.AlteraEmpresa;
 import br.com.ayrton.gerenciador.acao.ListaEmpresas;
 import br.com.ayrton.gerenciador.acao.MostraEmpresa;
@@ -25,31 +26,24 @@ public class UnicaEntradaServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String paramAcao = request.getParameter("acao");
 		
-		String caminho = null;
+		String nomeDaClasse = "br.com.ayrton.gerenciador.acao." + paramAcao;
 		
-		if (paramAcao.equals("ListaEmpresas")) {
-			ListaEmpresas acao = new ListaEmpresas();
-			caminho = acao.executa(request, response);
-		}else if (paramAcao.equals("RemoveEmpresa")) {
-			RemoveEmpresa acao = new RemoveEmpresa();
-			caminho = acao.remove(request, response);
-		}else if(paramAcao.equals("MostraEmpresa")) {
-			MostraEmpresa acao = new MostraEmpresa();
-			caminho = acao.mostrarEmpresa(request, response);
-		}else if(paramAcao.equals("NovaEmpresa")) {
-			NovaEmpresa acao = new NovaEmpresa();
-			caminho = acao.novaEmpresa(request, response);
-		}else if(paramAcao.equals("AlteraEmpresa")) {
-			AlteraEmpresa acao = new AlteraEmpresa();
-			caminho = acao.alteraEmpresa(request, response);
-		}else if(paramAcao.equals("FormularioEmpresa")) {
-			NovoFormularioEmpresa acao = new NovoFormularioEmpresa();
-			caminho = acao.formNovaEmpresa(request, response);
+		String nome;
+		try {
+			Class classe = Class.forName(nomeDaClasse); //carrega a classe com o nome ...
+			Acao acao = (Acao) classe.newInstance(); //criar uma instância da classe
+			nome = acao.executa(request,response); //executa o método da interface
+		}catch(ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			throw new ServletException(e);
 		}
 		
-		String[] tipoEndereco = caminho.split(":");
+		//caminnho para acessar qualquer página
+		//http://localhost:8080/gerenciador/entrada?acao=NomeDaClasse
+		//Ex: http://localhost:8080/gerenciador/entrada?acao=NovoFormularioEmpresa
+
 		
-		
+		String[] tipoEndereco = nome.split(":");
+				
 		if(tipoEndereco[0].equals("forward")) {
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/" + tipoEndereco[1]);
 			rd.forward(request, response);

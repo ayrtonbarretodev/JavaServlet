@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.ayrton.gerenciador.modelo.Banco;
 
-public class RemoveEmpresa {
+public class RemoveEmpresa implements Acao{
 	
-	public String remove(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	public String executa(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
 		System.out.println("removendo empresa");
 		

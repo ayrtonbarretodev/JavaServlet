@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.ayrton.gerenciador.modelo.Banco;
 import br.com.ayrton.gerenciador.modelo.Empresa;
 
-public class NovaEmpresa {
+public class NovaEmpresa implements Acao{
 
-	public String novaEmpresa(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+	public String executa(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		
 		System.out.println("Cadastrando nova empresa");
 		
