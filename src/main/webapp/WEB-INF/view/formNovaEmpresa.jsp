@@ -8,6 +8,8 @@
 <title>Cadastro de Empresa</title>
 </head>
 <body>
+	<c:import url="logout-parcial.jsp" />
+
 	<form action="${linkServletNovaEmpresa}" method="post"> <!-- O action está "chamando" o servlet NovaEmpresaServlet -->
 		Nome: <input type="text" name="nome">
 		Data de Abertura: <input type="text" name="data">
